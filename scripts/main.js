@@ -68,22 +68,26 @@ function matchWord(word, dictionary, word_guess) {
 }
 
 function addLetter(data) {
-  charArray[currentCharIdx] = data.key;
-  collection[0].children[guessCount].children[currentCharIdx].innerText =
-    charArray[currentCharIdx].toUpperCase();
-  collection[0].children[guessCount].children[currentCharIdx].classList.add(
-    "new-border"
-  );
-  currentCharIdx !== 4 ? currentCharIdx++ : null;
+  if (currentCharIdx < 5) {
+    charArray[currentCharIdx] = data.key;
+    collection[0].children[guessCount].children[currentCharIdx].innerText =
+      charArray[currentCharIdx].toUpperCase();
+    collection[0].children[guessCount].children[currentCharIdx].classList.add(
+      "new-border"
+    );
+    currentCharIdx++;
+  }
 }
 
 function removeLetter() {
   if (currentCharIdx != -1) {
-    collection[0].children[guessCount].children[
-      currentCharIdx
-    ].classList.remove("new-border");
-    charArray[currentCharIdx] = "";
-    collection[0].children[guessCount].children[currentCharIdx].textContent =
+    // Handle when the cursor goes out of the word range (i.e. after entering the last char)
+    const indexToRemove = currentCharIdx === 5 ? 4 : currentCharIdx;
+    collection[0].children[guessCount].children[indexToRemove].classList.remove(
+      "new-border"
+    );
+    charArray[indexToRemove] = "";
+    collection[0].children[guessCount].children[indexToRemove].textContent =
       charArray[currentCharIdx];
     currentCharIdx != 0 ? currentCharIdx-- : (currentCharIdx = 0);
   }
