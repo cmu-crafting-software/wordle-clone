@@ -1,9 +1,10 @@
-## Wordle clone made with Vanilla Javascript
+# Wordle with Vanilla JavaScript
 
-Has a spanish dictionary and it's kind of buggy but it work, more or less
+A simple wordle interface written in Vanilla JavaScript. To run the game locally:
 
-- [ ] Found a problem detecting if the letter is the same, algorithm Is quite bad doing the detecting 
-- [ ] Fix delete and add word problem
-- [x] Add Virtual Keyboard functionality
+* If you have [Node](https://nodejs.org/en/) installed, run `npx live-server .` in the repo root.
+* If you have Python 3 installed, run `python3 -m http.server`.
+  * See [here](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/set_up_a_local_testing_server) for more instructions. 
 
+This repo is a fork of <https://github.com/fabricio3g/wordle-clone>. 
  
