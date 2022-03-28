@@ -82,12 +82,12 @@ function addLetter(data) {
 function removeLetter() {
   if (currentCharIdx != -1) {
     // Handle when the cursor goes out of the word range (i.e. after entering the last char)
-    const indexToRemove = currentCharIdx === 5 ? 4 : currentCharIdx;
-    collection[0].children[guessCount].children[indexToRemove].classList.remove(
-      "new-border"
-    );
-    charArray[indexToRemove] = "";
-    collection[0].children[guessCount].children[indexToRemove].textContent =
+    currentCharIdx = currentCharIdx === 5 ? 4 : currentCharIdx;
+    collection[0].children[guessCount].children[
+      currentCharIdx
+    ].classList.remove("new-border");
+    charArray[currentCharIdx] = "";
+    collection[0].children[guessCount].children[currentCharIdx].textContent =
       charArray[currentCharIdx];
     currentCharIdx != 0 ? currentCharIdx-- : (currentCharIdx = 0);
   }
